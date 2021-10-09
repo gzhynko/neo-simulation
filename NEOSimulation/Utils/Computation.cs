@@ -12,20 +12,22 @@ namespace NEOSimulation.Utils
         {
             var ellipseDetail = 0.01f;
             var totalVertices = 2 * Math.PI / ellipseDetail;
-            var vertices = new VertexPositionColor[(int)totalVertices + 1];
+            var verticesArray = new VertexPositionColor[(int)totalVertices + 1];
 
             var index = 0;
             for (float i = 0; i <= 2 * Math.PI; i += ellipseDetail)
             {
-                vertices[index] = new VertexPositionColor(PositionAtEccentricAnomaly(i, semiMajorAxis, eccentricity, periapsis, inclination, ascNode) * scale, color);
+                verticesArray[index] = new VertexPositionColor(PositionAtEccentricAnomaly(i, semiMajorAxis, eccentricity, periapsis, inclination, ascNode) * scale, color);
                 index++;
             }
-
-            //vertices[index] = new VertexPositionColor(PositionAtEccentricAnomaly(0, semiMajorAxis, eccentricity, periapsis, inclination, ascNode) * scale, color);
             
-            return vertices;
+            return verticesArray;
         }
 
+        /// <summary>
+        /// The algorithm is taken from this StackExchange Space answer by 2012rcampion:
+        /// https://space.stackexchange.com/a/8915
+        /// </summary>
         public static Vector3 PositionAtEccentricAnomaly(float eccentricAnomaly, float semiMajorAxis, float eccentricity, float argumentOfPeriapsis, float inclination, float ascendingNode)
         {
             var xInPlane = semiMajorAxis * (Math.Cos(eccentricAnomaly) - eccentricity);
