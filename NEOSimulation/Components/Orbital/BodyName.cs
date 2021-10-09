@@ -11,7 +11,7 @@ using RectangleF = Nez.RectangleF;
 
 namespace NEOSimulation.Components.Orbital
 {
-    public class BodyName : Renderable3D, IUpdatable
+    public class BodyName : Rendering.Renderable3D, IUpdatable
     {
         private BasicEffect _basicEffect;
         public Body body;
