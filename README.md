@@ -30,4 +30,4 @@ The current data used in the project is valid as of _24.09.2021_.
 1. NEO orbit data: _JPL's Small-Body Database (https://ssd.jpl.nasa.gov/tools/sbdb_query.html)_.
 2. Large object (planets) orbit data: _Approximate Positions of the Planets, Table 2a (https://ssd.jpl.nasa.gov/planets/approx_pos.html)_.
 3. Large object (planets) diameters: _List of Solar System objects by size on Wikipedia (https://en.wikipedia.org/wiki/List_of_Solar_System_objects_by_size#Larger_than_400_km)_.
-4. The algorithm used in [Computation.PositionAtEccentricAnomaly](https://github.com/gzhynko/neo-simulation/blob/master/NEOSimulation/Utils/Computation.cs#31): _2012rcampion on StackExchange Space (https://space.stackexchange.com/a/8915)_.
+4. The algorithm used in [Computation.PositionAtEccentricAnomaly](https://github.com/gzhynko/neo-simulation/blob/master/NEOSimulation/Utils/Computation.cs#L31): _2012rcampion on StackExchange Space (https://space.stackexchange.com/a/8915)_.

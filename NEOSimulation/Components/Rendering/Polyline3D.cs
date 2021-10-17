@@ -27,7 +27,7 @@ namespace NEOSimulation.Components.Rendering
         {
             base.OnAddedToEntity();
 
-            _basicEffect = Entity.Scene.Content.LoadMonoGameEffect<BasicEffect>();
+            _basicEffect = MainScene.Instance.BasicEffect;
             _basicEffect.VertexColorEnabled = true;
         }
 

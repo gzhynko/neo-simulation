@@ -25,7 +25,7 @@ namespace NEOSimulation.Components.Orbital
             entity = Entity as CelestialBody;
             Insist.IsNotNull(entity, "BodyName component must only be added to a CelestialBody entity");
 
-            _basicEffect = Core.Content.LoadMonoGameEffect<BasicEffect>();
+            _basicEffect = MainScene.Instance.BasicEffect;
             _basicEffect.VertexColorEnabled = true;
             body = Entity.GetComponent<Body>();
             

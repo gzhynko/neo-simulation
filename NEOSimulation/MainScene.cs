@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using CsvHelper;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using NEOSimulation.Components;
 using NEOSimulation.Components.Rendering;
@@ -33,6 +34,8 @@ namespace NEOSimulation
 
         public CelestialBody[] BodyArray;
         
+        public BasicEffect BasicEffect;
+        
         public override void Initialize()
         {
             base.Initialize();
@@ -59,6 +62,8 @@ namespace NEOSimulation
 
             var uiEntity = CreateEntity("ui");
             uiEntity.AddComponent<Ui>();
+
+            BasicEffect = Core.Content.LoadMonoGameEffect<BasicEffect>();
         }
 
         public Body GetBodyByName(string name)

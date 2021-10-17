@@ -14,6 +14,8 @@ namespace NEOSimulation.ImGui
     {
         private bool DateInputShown = false;
         private string DateInputText = "";
+
+        private int currentTimeStep = 0;
         
         public override void Draw()
         {
@@ -21,7 +23,7 @@ namespace NEOSimulation.ImGui
 
             ImGui.Begin("Time Control", ImGuiWindowFlags.NoResize);
             ImGui.SetWindowPos(new Vector2(0, 220));
-            ImGui.SetWindowSize(new Vector2(250, DateInputShown ? 200 : 170));
+            ImGui.SetWindowSize(new Vector2(250, DateInputShown ? 240 : 210));
 
             var timeManager = MainScene.Instance.TimeManager;
             if(timeManager.Entity == null)
@@ -59,6 +61,14 @@ namespace NEOSimulation.ImGui
             }
 
             Separation(5f);
+            
+            ImGui.Text("Step Size:");
+            ImGui.SameLine();
+            ImGui.Combo("", ref currentTimeStep, new[] { "Hour", "Six Hours", "Day", "Week", "Month", "Six Months", "Year" }, 7);
+            
+            timeManager.CurrentTimeStep = (TimeStep)currentTimeStep;
+
+            ImGui.Dummy(new Vector2(0, 10f));
 
             ImGui.Columns(3, "playColumn", false);
             ImGui.SetColumnOffset(1, 90);
@@ -103,7 +113,7 @@ namespace NEOSimulation.ImGui
             }
             
             ImGui.Columns();
-
+            
             ImGui.End();
         }
     }

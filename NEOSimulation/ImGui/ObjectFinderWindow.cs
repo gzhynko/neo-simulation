@@ -23,7 +23,7 @@ namespace NEOSimulation.ImGui
             if (IsShown == false) return;
             
             ImGui.Begin("Object Finder", ImGuiWindowFlags.NoResize);
-            ImGui.SetWindowPos(new Vector2(0, 450));
+            ImGui.SetWindowPos(new Vector2(0, 490));
             ImGui.SetWindowSize(new Vector2(300, 230));
             
             var selectedBodyManager = MainScene.Instance.SelectedBodyManager;

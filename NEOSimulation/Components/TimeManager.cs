@@ -12,7 +12,7 @@ namespace NEOSimulation.Components
         public DateTime CurrentDate;
 
         public TimePlayDirection CurrentPlayDirection = TimePlayDirection.None;
-        public TimeStep CurrentTimeStep = TimeStep.Hour;
+        public TimeStep CurrentTimeStep = TimeStep.Year;
 
         private DateTime J2000 = new DateTime(2000, 1, 1, 12, 0, 0);
 
@@ -68,11 +68,29 @@ namespace NEOSimulation.Components
 
         private void ProgressDate(int totalHours)
         {
+            var newTotalTicks = CurrentDate.Ticks + TimeSpan.TicksPerHour * totalHours;
+            var maxTotalTicks = DateTime.MaxValue.Ticks;
+
+            if (newTotalTicks >= maxTotalTicks)
+            {
+                CurrentPlayDirection = TimePlayDirection.None;
+                return;
+            }
+            
             ChangeDate(CurrentDate.AddHours(totalHours));
         }
         
         private void RegressDate(int totalHours)
         {
+            var newTotalTicks = CurrentDate.Ticks - TimeSpan.TicksPerHour * totalHours;
+            var minTotalTicks = DateTime.MinValue.Ticks;
+
+            if (newTotalTicks <= minTotalTicks)
+            {
+                CurrentPlayDirection = TimePlayDirection.None;
+                return;
+            }
+            
             ChangeDate(CurrentDate.AddHours(-totalHours));
         }
 
@@ -94,13 +112,13 @@ namespace NEOSimulation.Components
                     totalHours = 24 * 7;
                     break;
                 case TimeStep.Month:
-                    totalHours = 24 * 7 * 30;
+                    totalHours = 24 * 30;
                     break;
                 case TimeStep.SixMonths:
-                    totalHours = 24 * 7 * 30 * 6;
+                    totalHours = 24 * 30 * 6;
                     break;
                 case TimeStep.Year:
-                    totalHours = 24 * 7 * 30 * 12;
+                    totalHours = 24 * 365;
                     break;
             }
 
