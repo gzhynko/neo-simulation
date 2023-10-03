@@ -6,7 +6,6 @@ namespace NEOSimulation
 {
     public class Simulation : Core
     {
-        //private CelestialBody _celestialBody;
         protected override void Initialize()
         {
             base.Initialize();
@@ -21,6 +20,9 @@ namespace NEOSimulation
 
             var imGuiManager = new ImGuiManager();
             imGuiManager.ShowMenuBar = false;
+            imGuiManager.ShowSeperateGameWindow = false;
+            imGuiManager.ShowCoreWindow = false;
+            imGuiManager.ShowSceneGraphWindow = false;
             
             RegisterGlobalManager(imGuiManager);
             RegisterGlobalManager(new ImGuiCustomWindows());

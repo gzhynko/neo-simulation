@@ -24,7 +24,7 @@ the limits and output fields used to query the database:
    -  `Earth MOID`
    -  `diameter`
     
-The current data used in the project is valid as of _24.09.2021_.
+The current data used in the project is valid as of _02.10.2023_.
 
 ## References
 1. NEO orbit data: _JPL's Small-Body Database (https://ssd.jpl.nasa.gov/tools/sbdb_query.html)_.
